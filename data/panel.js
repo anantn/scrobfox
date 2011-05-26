@@ -42,6 +42,15 @@ self.port.on("connection", function(type) {
         song.id = "song";
         song.appendChild(document.createTextNode("You're not playing any music!"));
 
+        var pp = document.createElement("p");
+        var pi = document.createElement("img");
+        pi.src = "i/pandora.png";
+        pi.onclick = function() {
+            self.port.emit("launch", "pandora");
+        };
+        pp.appendChild(pi);
+        song.appendChild(pp);
+
         var connected = document.createElement("div");
         connected.id = "connected";
         var asicon = document.createElement("img");

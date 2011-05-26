@@ -30,7 +30,8 @@ body {
 }
 
 #song {
-    padding: 2px;
+    padding-top: 2px;
+    padding-left: 6px;
     height: 100px;
 }
 
