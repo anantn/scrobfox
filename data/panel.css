@@ -6,6 +6,16 @@ body {
 .centered {
     text-align: center;
 }
+.songinfo {
+    float: right;
+    width: 100px;
+}
+.title {
+    font-size: 13px;
+}
+.artist {
+    font-size: 10px;
+}
 
 #container {
     padding: 1px;
@@ -38,7 +48,7 @@ body {
 #connected {
     height: 30px;
     float: right;
-    font-size: 13px;
+    font-size: 12px;
     padding: 2px;
 }
 

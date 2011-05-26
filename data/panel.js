@@ -3,6 +3,22 @@ var main = document.getElementById("container");
 var mesg = document.getElementById("message");
 var load = document.getElementById("loading");
 
+self.port.on("playing", function(song) {
+    var div = document.getElementById("song");
+    div.innerHTML = "";
+
+    var simg = document.createElement("img");
+    simg.src = "i/pandora.png";
+
+    var sinfo = document.createElement("div");
+    sinfo.class = "songinfo";
+    sinfo.innerHTML = '<span class="title">' + song.title + '</span><br/>';
+    sinfo.innerHTML += '<span class="artist">by ' + song.artist;
+
+    div.appendChild(simg);
+    div.appendChild(sinfo);
+});
+
 self.port.on("connection", function(type) {
     switch (type) {
     case "none":
