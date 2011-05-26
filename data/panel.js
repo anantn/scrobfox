@@ -29,7 +29,8 @@ self.port.on("connection", function(type) {
         load = main.replaceChild(div, load);
         break;
     
-    case "failure":
+    case "failed":
+        var but = document.createElement("input");
         mesg.innerHTML = "Could not authenticate - Try again?";
         but.value = "Connect to Last.FM";
         but.disabled = false;
