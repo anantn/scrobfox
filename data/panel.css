@@ -1,0 +1,43 @@
+body {
+    color: #93a1a1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.centered {
+    text-align: center;
+}
+
+#container {
+    padding: 1px;
+    height: 130px;
+    border-radius: 0.4em;
+    background-color: #002b36;
+}
+
+#loading {
+    display: block;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#connect {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+#song {
+    padding: 2px;
+    height: 100px;
+}
+
+#connected {
+    height: 30px;
+    float: right;
+    font-size: 13px;
+    padding: 2px;
+}
+
