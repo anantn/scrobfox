@@ -1,82 +1,38 @@
 
-var main = document.getElementById("container");
-var mesg = document.getElementById("message");
-var load = document.getElementById("loading");
-
 self.port.on("playing", function(song) {
-    var div = document.getElementById("song");
-    div.innerHTML = "";
-
-    var simg = document.createElement("img");
-    simg.src = "i/pandora.png";
-
-    var sinfo = document.createElement("div");
+    var sinfo = document.getElementById("info");
     sinfo.class = "songinfo";
     sinfo.innerHTML = '<span class="title">' + song.title + '</span><br/>';
     sinfo.innerHTML += '<span class="artist">by ' + song.artist;
-
-    div.appendChild(simg);
-    div.appendChild(sinfo);
 });
 
 self.port.on("connection", function(type) {
     switch (type) {
-    case "none":
-        var div = document.createElement("div");
-        div.id = "connect";
-
-        var wel = document.createElement("p");
-        wel.class = "centered";
-        wel.innerHTML = "Let's get you set up, shall we?";
-
-        var but = document.createElement("input");
-        but.id = "connector";
-        but.type = "button";
-        but.value = "Connect to Last.FM";
+    case "connect":
+        var but = document.getElementById("connector");
         but.onclick = function() {
-            but.value = "Connecting...";
             but.disabled = true;
-            self.port.emit("connect");
-        };
-
-        mesg.innerHTML = "";
-        div.appendChild(wel);
-        div.appendChild(but);
-        load = main.replaceChild(div, load);
+            self.port.emit('connect');
+        }
         break;
-    
+
     case "failed":
-        var but = document.createElement("input");
-        mesg.innerHTML = "Could not authenticate - Try again?";
-        but.value = "Connect to Last.FM";
+        // edit connect message and stay at <div id="connect">
+        var but = document.getElementById("connector");
         but.disabled = false;
+        var mesg = document.getElementById("connector-message");
+        mesg.innerHTML = "Could not authenticate - Try again?";
         break;
 
     default:
-        main.innerHTML = "";
-        
-        var song = document.createElement("div");
-        song.id = "song";
-        song.appendChild(document.createTextNode("You're not playing any music!"));
-
-        var pp = document.createElement("p");
-        var pi = document.createElement("img");
-        pi.src = "i/pandora.png";
-        pi.onclick = function() {
-            self.port.emit("launch", "pandora");
+        // show <div id="default"> and append name
+        document.getElementById("connect").style.display = "none";
+        document.getElementById("default").style.display = "block";
+        document.getElementById("pandora").onclick = function() {
+            self.port.emit('launch', 'pandora');
         };
-        pp.appendChild(pi);
-        song.appendChild(pp);
-
-        var connected = document.createElement("div");
-        connected.id = "connected";
-        var asicon = document.createElement("img");
-        asicon.src = "http://cdn.last.fm/flatness/favicon.2.ico";
-        connected.appendChild(asicon);
-        connected.appendChild(document.createTextNode(" Connected as " + type));
-
-        main.appendChild(song);
-        main.appendChild(connected);
+        var name = document.getElementById("connected");
+        name.innerHTML += type;
         break;
     }
 });

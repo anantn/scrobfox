@@ -24,19 +24,16 @@ body {
     background-color: #002b36;
 }
 
-#loading {
-    display: block;
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 #connect {
     display: block;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 25px;
+}
+
+#default {
+    display: none;
 }
 
 #song {
@@ -46,9 +43,12 @@ body {
 }
 
 #connected {
-    height: 30px;
     float: right;
-    font-size: 12px;
-    padding: 2px;
+    padding: 4px;
+    font-size: 13px;
+    vertical-align: middle;
 }
 
+#connected img {
+    margin-bottom: -4px;
+}
