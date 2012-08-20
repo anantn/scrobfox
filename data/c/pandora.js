@@ -1,10 +1,15 @@
 
-function getCurrentSong() {
-    return {
+function sendCurrentSong() {
+    var song = {
         title: document.querySelector('.playerBarSong').innerHTML,
         artist: document.querySelector('.playerBarArtist').innerHTML,
         album: document.querySelector('.playerBarAlbum').innerHTML
     };
+
+    if (song.title == "ad" || song.title == "audioad") {
+        return;
+    }
+    self.postMessage(song);
 }
 
 function setupObserver(bar) {
@@ -13,9 +18,7 @@ function setupObserver(bar) {
             if (m.target.className != 'playerBarSong') {
                 return;
             }
-            setTimeout(function() {
-                self.postMessage(getCurrentSong());
-            }, 2000);
+            setTimeout(sendCurrentSong, 2000);
         });
     });
     obs.observe(bar, {subtree:true, childList:true});
@@ -26,7 +29,7 @@ function checkAndPost() {
     var bar = document.querySelector('.nowplaying');
     var song = document.querySelector('.playerBarSong');
     if (bar && song && song.innerHTML.trim()) {
-        self.postMessage(getCurrentSong());
+        sendCurrentSong();
         setupObserver(bar);
         return;
     }
