@@ -12,7 +12,7 @@ self.port.on("connection", function(type) {
         var but = document.getElementById("connector");
         but.onclick = function() {
             but.disabled = true;
-            self.port.emit('connect');
+            self.port.emit("connect");
         }
         break;
 
@@ -29,7 +29,10 @@ self.port.on("connection", function(type) {
         document.getElementById("connect").style.display = "none";
         document.getElementById("default").style.display = "block";
         document.getElementById("pandora").onclick = function() {
-            self.port.emit('launch', 'pandora');
+            self.port.emit("launch", "pandora");
+        };
+        document.getElementById("amazon").onclick = function() {
+            self.port.emit("launch", "amazon");
         };
         var name = document.getElementById("connected");
         name.innerHTML += type;

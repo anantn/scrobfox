@@ -11,10 +11,10 @@ body {
     width: 100px;
 }
 .title {
-    font-size: 13px;
+    font-size: 16px;
 }
 .artist {
-    font-size: 10px;
+    font-size: 13px;
 }
 
 #container {
@@ -51,4 +51,11 @@ body {
 
 #connected img {
     margin-bottom: -4px;
+}
+
+#launchers {
+    position: absolute;
+    height: 32px;
+    width: 100px;
+    bottom: 15%;
 }

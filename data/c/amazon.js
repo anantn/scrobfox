@@ -1,29 +1,32 @@
 
 function sendCurrentSong() {
     var song = {};
-    var details = amznMusic.widgets.player.getCurrent();
+    var details = unsafeWindow.amznMusic.widgets.player.getCurrent();
 
-    if (!details || !details.title || !details.artistName) {
+    if (!details || !details.metadata.title || !details.metadata.artistName) {
       return;
     }
 
-    var song = { title: details.title, artist: details.artistName };
-    if (details.albumName) {
-      song.album = details.albumName;
+    var song = {
+      title: details.metadata.title, artist: details.metadata.artistName
+    };
+    if (details.metadata.albumName) {
+      song.album = details.metadata.albumName;
     }
     self.postMessage(song);
 }
 
 var timeout = 2000;
 function checkPlayer() {
-    if (!amznMusic || !amznMusic.widgets.player.created) {
+    if (!('amznMusic' in unsafeWindow) ||
+        !unsafeWindow.amznMusic.widgets.player.created) {
       timeout *= 2;
       setTimeout(checkPlayer, timeout);
       return;
     }
 
-    var oldCallback = amznMusic.widgets.player.callback;
-    amznMusic.widgets.player.callback = function(e) {
+    var oldCallback = unsafeWindow.amznMusic.widgets.player.callback;
+    unsafeWindow.amznMusic.widgets.player.callback = function(e) {
       if (e == "onPlay") {
         sendCurrentSong();
       }
