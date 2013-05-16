@@ -18,7 +18,7 @@ function sendCurrentSong() {
 
 var timeout = 2000;
 function checkPlayer() {
-  if (!('amznMusic' in unsafeWindow) || !unsafeWindow.amznMusic.widgets.player.created) {
+  if (!("amznMusic" in unsafeWindow) || !unsafeWindow.amznMusic.widgets.player.created) {
     timeout *= 2;
     setTimeout(checkPlayer, timeout);
     return;
