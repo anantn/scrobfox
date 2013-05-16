@@ -42,15 +42,6 @@ self.port.on("connection", function(type) {
     // show <div id="default"> and append name
     document.getElementById("connect").style.display = "none";
     document.getElementById("default").style.display = "block";
-    document.getElementById("pandora").onclick = function() {
-      self.port.emit("launch", "pandora");
-    };
-    document.getElementById("amazon").onclick = function() {
-      self.port.emit("launch", "amazon");
-    };
-    document.getElementById("google").onclick = function() {
-      self.port.emit("launch", "google");
-    };
     var name = document.getElementById("connected");
     name.innerHTML += type;
     break;
