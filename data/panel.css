@@ -1,61 +1,65 @@
 body {
-    color: #93a1a1;
-    font-family: Arial, Helvetica, sans-serif;
+  color: #93a1a1;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .centered {
-    text-align: center;
+  text-align: center;
 }
 .songinfo {
-    float: right;
-    width: 100px;
+  float: right;
+  width: 100px;
 }
 .title {
-    font-size: 16px;
+  font-size: 16px;
 }
 .artist {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 #container {
-    padding: 1px;
-    height: 130px;
-    border-radius: 0.4em;
-    background-color: #002b36;
+  padding: 1px;
+  height: 130px;
+  border-radius: 0.4em;
+  background-color: #002b36;
 }
 
 #connect {
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
 }
 
 #default {
-    display: none;
+  display: none;
 }
 
 #song {
-    padding-top: 2px;
-    padding-left: 6px;
-    height: 100px;
+  padding-top: 2px;
+  padding-left: 6px;
+  height: 100px;
 }
 
 #connected {
-    float: right;
-    padding: 4px;
-    font-size: 13px;
-    vertical-align: middle;
+  float: right;
+  padding: 4px;
+  font-size: 13px;
+  vertical-align: middle;
 }
 
 #connected img {
-    margin-bottom: -4px;
+  margin-bottom: -4px;
 }
 
 #launchers {
-    position: absolute;
-    height: 32px;
-    width: 100px;
-    bottom: 15%;
+  position: absolute;
+  height: 32px;
+  width: 100px;
+  bottom: 15%;
+}
+
+#launchers img {
+  padding: 5px;
 }

@@ -1,4 +1,18 @@
 
+self.port.on("initialize", function(sites) {
+  for (var site in sites) {
+    var img = document.createElement("img");
+    img.src = "i/" + site + ".png";
+    img.id = site;
+    img.onclick = (function(s) {
+      return function() {
+        self.port.emit("launch", s);
+      }
+    })(site);
+    document.getElementById("launchers").appendChild(img);
+  }
+});
+
 self.port.on("playing", function(song) {
   var sinfo = document.getElementById("info");
   sinfo.class = "songinfo";
@@ -33,6 +47,9 @@ self.port.on("connection", function(type) {
     };
     document.getElementById("amazon").onclick = function() {
       self.port.emit("launch", "amazon");
+    };
+    document.getElementById("google").onclick = function() {
+      self.port.emit("launch", "google");
     };
     var name = document.getElementById("connected");
     name.innerHTML += type;
