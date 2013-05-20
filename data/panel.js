@@ -16,8 +16,9 @@ self.port.on("initialize", function(sites) {
 self.port.on("playing", function(song) {
   var sinfo = document.getElementById("info");
   sinfo.class = "songinfo";
-  sinfo.innerHTML = '<span class="title">' + song.title + '</span><br/>';
-  sinfo.innerHTML += '<span class="artist">by ' + song.artist;
+  var title = "<span class='title'>" + song.title + "</span><br/>";
+  var artist = "<span class='artist'>by " + song.artist;
+  sinfo.innerHTML = title + artist;
 });
 
 self.port.on("connection", function(type) {
