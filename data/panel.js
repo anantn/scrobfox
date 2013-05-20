@@ -16,9 +16,18 @@ self.port.on("initialize", function(sites) {
 self.port.on("playing", function(song) {
   var sinfo = document.getElementById("info");
   sinfo.class = "songinfo";
-  var title = "<span class='title'>" + song.title + "</span><br/>";
-  var artist = "<span class='artist'>by " + song.artist;
-  sinfo.innerHTML = title + artist;
+
+  var spanTitle = document.createElement("span");
+  spanTitle.class = "title";
+  spanTitle.appendChild(document.createTextNode(song.title));
+
+  var spanArtist = document.createElement("span");
+  spanArtist.class = "artist";
+  spanArtist.appendChild(document.createTextNode(song.artist));
+
+  sinfo.innerHTML = "";
+  sinfo.appendChild(spanTitle);
+  sinfo.appendChild(spanArtist);
 });
 
 self.port.on("connection", function(type) {
