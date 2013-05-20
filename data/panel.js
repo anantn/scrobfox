@@ -27,6 +27,7 @@ self.port.on("playing", function(song) {
 
   sinfo.innerHTML = "";
   sinfo.appendChild(spanTitle);
+  sinfo.appendChild(document.createElement("br"));
   sinfo.appendChild(spanArtist);
 });
 
