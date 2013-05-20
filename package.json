@@ -2,7 +2,7 @@
     "name": "scrobfox",
     "license": "MPL 1.1/GPL 2.0/LGPL 2.1",
     "author": "Anant Narayanan <anant@kix.in>",
-    "version": "0.2",
+    "version": "0.2.1",
     "fullName": "Scrobfox",
     "id": "jid1-zcreHDyRZO9jfg",
     "description": "A Firefox extension to scrobble your tunes from web-based players.",
